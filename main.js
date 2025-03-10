@@ -11,5 +11,4 @@ function appendMain() {
 appendMain();
 
 const foods = new Foods();
-document.querySelector("#foods").appendChild(foods.render());
-foods.attachEventListener();
+document.querySelector("#foods").appendChild(foods.element);

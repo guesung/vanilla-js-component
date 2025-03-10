@@ -1,7 +1,10 @@
 export default class Component {
   #element;
 
-  constructor() {}
+  constructor() {
+    this.render();
+    this.attachEventListener();
+  }
 
   render() {
     if (!this.#element) this.#element = document.createElement("div");

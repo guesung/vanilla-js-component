@@ -17,16 +17,13 @@ export default class Foods extends Component {
   }
 
   attachEventListener() {
-    document
-      .querySelector("#foods")
-      .querySelector("form")
-      .addEventListener("submit", (event) => {
-        event.preventDefault();
+    this.element.querySelector("form").addEventListener("submit", (event) => {
+      event.preventDefault();
 
-        const addFoodInputValue = document.querySelector("#add-food").value;
-        foods.push(addFoodInputValue);
+      const addFoodInputValue = document.querySelector("#add-food").value;
+      foods.push(addFoodInputValue);
 
-        this.render();
-      });
+      this.render();
+    });
   }
 }

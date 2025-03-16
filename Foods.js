@@ -1,13 +1,17 @@
 import Component from "./Component.js";
 
-const foods = ["삼겹살", "감자탕", "치킨"];
-
 export default class Foods extends Component {
+  setup() {
+    this.state = {
+      foods: ["삼겹살", "감자탕", "치킨"],
+    };
+  }
+
   template() {
     return `
       <h1>내가 가장 좋아하는 음식들</h1>
       <ul>
-        ${foods.map((food) => `<li>${food}</li>`).join("")}
+        ${this.state.foods.map((food) => `<li>${food}</li>`).join("")}
       </ul>
       <form>
         <input id="add-food" />
@@ -21,9 +25,8 @@ export default class Foods extends Component {
       event.preventDefault();
 
       const addFoodInputValue = document.querySelector("#add-food").value;
-      foods.push(addFoodInputValue);
 
-      this.render();
+      this.setState({ foods: [...this.state.foods, addFoodInputValue] });
     });
   }
 }

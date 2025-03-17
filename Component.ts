@@ -1,4 +1,12 @@
-export default class Component<Props, State> {
+interface StrictObject {
+  [key: string]: any;
+  length?: never;
+}
+
+export default class Component<
+  Props extends StrictObject = {},
+  State extends StrictObject = {}
+> {
   #element: HTMLElement;
   #props: Props;
   state: State;

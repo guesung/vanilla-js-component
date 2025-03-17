@@ -8,7 +8,7 @@ interface FoodsState {
   foods: string[];
 }
 
-export default class Foods extends Component<FoodsProps, FoodsState> {
+export default class Foods extends Component<FoodsProps, FoodsProps> {
   setup() {
     this.state = {
       foods: this.props.foods,

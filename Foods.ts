@@ -1,6 +1,14 @@
 import Component from "./Component.js";
 
-export default class Foods extends Component {
+interface FoodsProps {
+  foods: string[];
+}
+
+interface FoodsState {
+  foods: string[];
+}
+
+export default class Foods extends Component<FoodsProps, FoodsState> {
   setup() {
     this.state = {
       foods: this.props.foods,
@@ -21,10 +29,12 @@ export default class Foods extends Component {
   }
 
   attachEventListener() {
-    this.element.querySelector("form").addEventListener("submit", (event) => {
+    this.element.querySelector("form")?.addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const addFoodInputValue = this.element.querySelector("#add-food").value;
+      const addFoodInputValue = (
+        this.element.querySelector("#add-food") as HTMLInputElement
+      )?.value;
 
       this.setState({ foods: [...this.state.foods, addFoodInputValue] });
     });

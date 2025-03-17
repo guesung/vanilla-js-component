@@ -1,9 +1,9 @@
-export default class Component {
-  #element;
-  #props;
-  state = {};
+export default class Component<Props, State> {
+  #element: HTMLElement;
+  #props: Props;
+  state: State;
 
-  constructor(props) {
+  constructor(props: Props) {
     this.#props = props;
 
     this.setup();
@@ -19,7 +19,7 @@ export default class Component {
     this.#element.innerHTML = this.template();
   }
 
-  setState(nextState) {
+  setState(nextState: Partial<State>) {
     this.state = { ...this.state, ...nextState };
     this.render();
   }

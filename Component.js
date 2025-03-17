@@ -1,8 +1,11 @@
 export default class Component {
   #element;
+  #props;
   state = {};
 
-  constructor() {
+  constructor(props) {
+    this.#props = props;
+
     this.setup();
     this.render();
     this.attachEventListener();
@@ -29,5 +32,9 @@ export default class Component {
 
   get element() {
     return this.#element;
+  }
+
+  get props() {
+    return this.#props;
   }
 }

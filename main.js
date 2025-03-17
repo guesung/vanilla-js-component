@@ -10,5 +10,5 @@ function appendMain() {
 
 appendMain();
 
-const foods = new Foods();
+const foods = new Foods({ foods: ["삼겹살", "감자탕", "치킨"] });
 document.querySelector("#foods").appendChild(foods.element);

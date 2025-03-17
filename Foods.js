@@ -3,7 +3,7 @@ import Component from "./Component.js";
 export default class Foods extends Component {
   setup() {
     this.state = {
-      foods: ["삼겹살", "감자탕", "치킨"],
+      foods: this.props.foods,
     };
   }
 
@@ -24,7 +24,7 @@ export default class Foods extends Component {
     this.element.querySelector("form").addEventListener("submit", (event) => {
       event.preventDefault();
 
-      const addFoodInputValue = document.querySelector("#add-food").value;
+      const addFoodInputValue = this.element.querySelector("#add-food").value;
 
       this.setState({ foods: [...this.state.foods, addFoodInputValue] });
     });

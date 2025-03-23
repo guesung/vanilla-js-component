@@ -22,9 +22,13 @@ export default class Component<
   setup() {}
 
   render() {
-    if (!this.#element) this.#element = document.createElement("div");
+    const element = document.createElement("div");
+    element.innerHTML = this.template();
 
-    this.#element.innerHTML = this.template();
+    const elementFirstChild = element.firstElementChild as HTMLElement;
+
+    if (!this.#element) this.#element = elementFirstChild;
+    else this.#element.innerHTML = elementFirstChild.innerHTML;
   }
 
   setState(nextState: Partial<State>) {
